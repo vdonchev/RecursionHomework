@@ -6,7 +6,7 @@
 
     class ConnectedAreasInMatrix
     {
-        private static List<Area> matches = new List<Area>();
+        private static SortedSet<Area> matches = new SortedSet<Area>();
         private static int areaSize = 0;
         private static char[,] maze =
         {
@@ -68,11 +68,8 @@
             }
             else
             {
-                var sorted = matches
-                    .OrderByDescending(a => a.Size);
-
                 int areaNum = 1;
-                foreach (var area in sorted)
+                foreach (var area in matches)
                 {
                     Console.WriteLine(
                         "Area #{0} at {1}",
